@@ -10,9 +10,9 @@ export default function Home() {
   return (
     <div className="homePage">
       <div className="featured">
-        <FeatureInfo title={'Revenue'} actual={'$4,224.45'} mom={'-19.1%'} />
-        <FeatureInfo title={'Sales'} actual={'$7,526.19'} mom={'-20.1%'} />
-        <FeatureInfo title={'Cost'} actual={'149.47'} mom={'-9.16%'} />
+        <FeatureInfo title={'Revenue'} actual={'$4,224.45'} mom={-19.1} />
+        <FeatureInfo title={'Sales'} actual={'$7,526.19'} mom={-20.1} />
+        <FeatureInfo title={'Cost'} actual={'149.47'} mom={-9.16} />
       </div>
       <Chart
         title={'User Analytics'}

@@ -30,9 +30,14 @@
   margin-left: 20px;
 }
 
-.featuredIcon {
+.featuredIconDown,
+.featuredIconUP {
   font-size: 16px !important;
   margin-left: 5px;
+  color: green;
+}
+
+.featuredIconDown {
   color: red;
 }
 

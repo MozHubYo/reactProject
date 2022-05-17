@@ -11,6 +11,7 @@ import {
 import { Link } from 'react-router-dom';
 
 export default function User() {
+  const [file, setFile] = useState('');
   const [data, setData] = useState({
     account: '',
     userName: '',
@@ -36,6 +37,8 @@ export default function User() {
             })
         );
   }
+
+  console.log(file);
 
   return (
     <div className="userPage">
@@ -189,7 +192,11 @@ export default function User() {
             </div>
             <div className="userPageDetailUpdateRight">
               <img
-                src="https://picsum.photos/300/300?random=990"
+                src={
+                  file !== ''
+                    ? window.URL.createObjectURL(file)
+                    : 'https://picsum.photos/300/300?random=990'
+                }
                 alt=""
                 className="userPageDetailUpdateRightImg"
               />
@@ -197,6 +204,8 @@ export default function User() {
                 type="file"
                 className="userPageDetailUpdateRightFile"
                 id="file"
+                accept="image/*"
+                onChange={(e) => setFile(e.target.files[0])}
               />
               <label htmlFor="file">
                 <CloudUpload className="userPageDetailUpdateRightIcon" />

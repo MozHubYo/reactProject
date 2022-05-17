@@ -49,10 +49,12 @@ export default function Sidebar() {
               <ShoppingCart className="sidebarIcon" />
               Product
             </li>
-            <li className="sidebarListItem">
-              <AirportShuttle className="sidebarIcon" />
-              Inventory
-            </li>
+            <Link className="sidebarLink" to="/inventory">
+              <li className="sidebarListItem">
+                <AirportShuttle className="sidebarIcon" />
+                Inventory
+              </li>
+            </Link>
           </ul>
         </div>
         <div className="sidebarMenu">
