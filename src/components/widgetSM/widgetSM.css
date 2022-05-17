@@ -1,0 +1,68 @@
+.widgetSM {
+  flex: 2;
+  border: 1px solid purple;
+  box-shadow: 4px 4px 4px -1px purple;
+  padding: 20px;
+  margin: 10px;
+  margin-top: 0;
+}
+
+.widgetSMtitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: #555;
+}
+
+.widgetSMImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.widgetSMList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.widgetSMItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 20px 0px;
+}
+
+.widgetSMUser {
+  display: flex;
+  flex-direction: column;
+}
+
+.widgetSMUserName {
+  font-size: 12px;
+  font-weight: 800;
+  font-family: sans-serif;
+}
+
+.widgetSMUserTitle {
+  font-size: 10px;
+  font-weight: lighter;
+  font-family: sans-serif;
+}
+
+.widgetSMUserButton {
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 15px;
+  padding: 8px 10px;
+  font-family: sans-serif;
+  font-weight: 300;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.widgetSMUserIcon {
+  font-size: 17px !important;
+  margin-right: 5px;
+}

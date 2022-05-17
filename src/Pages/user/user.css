@@ -1,0 +1,255 @@
+.userPage {
+  flex: 7;
+  margin: 0px 10px;
+}
+
+.userPageTopBar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.userPageTitle {
+  margin-left: 10px;
+  font-size: 30px;
+  color: purple;
+}
+
+.userPageEditButtonItem {
+  height: 100%;
+  background-color: purple;
+  color: white;
+  padding: 0 20px;
+  margin-right: 10px;
+  font-size: 15px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.5s ease;
+  position: relative;
+}
+
+.userPageEditButtonItem:disabled,
+.userPageEditButtonItem:disabled:hover {
+  background-color: gray;
+  color: white;
+  cursor: not-allowed;
+}
+
+.userPageEditButtonItemToolTip {
+  visibility: hidden;
+  white-space: nowrap;
+  background-color: rgb(218, 198, 218, 0.7);
+  color: black;
+  font-size: 10px;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 10px;
+  position: absolute;
+  top: -1px;
+  left: -146%;
+  z-index: 1;
+}
+
+.userPageEditButtonItemToolTip::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent rgb(218, 198, 218, 0.7);
+}
+
+.userPageEditButtonItemToolTip.saveChange {
+  background-color: rgb(218, 198, 218);
+  top: 117%;
+  left: -56%;
+}
+
+.userPageEditButtonItemToolTip.saveChange::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 80%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent rgb(218, 198, 218) transparent;
+}
+
+.userPageEditButtonItem:hover {
+  background-color: rgb(228, 154, 228);
+  color: purple;
+}
+
+.userPageEditButtonItem:hover .userPageEditButtonItemToolTip {
+  visibility: visible;
+}
+
+.userPageDetailContainer {
+  display: flex;
+}
+
+.userPageDetailShow {
+  flex: 1;
+  padding: 20px;
+  border: 1px solid purple;
+  box-shadow: 4px 4px 4px -1px purple;
+  margin-top: 10px;
+  margin-right: 5px;
+}
+
+.userPageDetailUpdate {
+  flex: 2;
+  padding: 20px;
+  border: 1px solid purple;
+  box-shadow: 4px 4px 4px -1px purple;
+  margin-top: 10px;
+  margin-left: 5px;
+}
+
+.userPageDetailShowTop {
+  display: flex;
+  align-items: center;
+}
+
+.userPageDetailShowTopImg {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-right: 25px;
+  margin-left: 20px;
+}
+
+.userPageDetailShowTopProfile {
+  display: flex;
+  flex-direction: column;
+}
+
+.userPageDetailShowTopProfileName {
+  font-size: 20px;
+  color: purple;
+}
+.userPageDetailShowTopProfileTitle {
+  color: #555;
+}
+
+.userPageDetailShowDown {
+  margin: 20px 0;
+  padding-left: 20px;
+}
+
+.userPageDetailShowDownTitle {
+  color: purple;
+}
+
+.userPageDetailShowDownList {
+  padding: 0;
+}
+
+.userPageDetailShowDownItem {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 15px 0px 20px 20px;
+  color: #555;
+}
+.userPageDetailShowDownIcon {
+  font-size: 20px !important;
+  margin-right: 20px;
+}
+
+.userPageDetailUpdate {
+  display: flex;
+  flex-direction: column;
+}
+
+.userPageDetailUpdateTitle {
+  font-size: 30px;
+  color: purple;
+  margin-bottom: 15px;
+}
+
+.userPageDetailUpdateBottom {
+  display: flex;
+  gap: 10px;
+}
+
+.userPageDetailUpdateLeft,
+.userPageDetailUpdateRight {
+  flex: 1;
+  padding: 10px;
+}
+
+.userPageDetailUpdateForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.userPageDetailUpdateItemContainer {
+  position: relative;
+  margin-bottom: 5px;
+}
+
+.userPageDetailUpdateItemTitle {
+  display: block;
+  color: #555;
+}
+
+.userPageDetailItemInput {
+  border: none;
+  border-bottom: 2px solid lightgray;
+  height: 20px;
+  width: 90%;
+  font-family: 'Franklin Gothic Medium';
+  font-weight: 300;
+  font-size: 10px;
+  color: #555;
+  outline: none;
+}
+
+.userPageDetailItemInput:not(:placeholder-shown) {
+  border-bottom: 2px solid purple;
+}
+
+.userPageDetailItemInput::placeholder {
+  color: lightgray;
+}
+
+.userPageDetailUpdateItemBorder {
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 92%;
+  top: calc(100% - 2px);
+  background: purple;
+  transform: scaleX(0);
+  transition: transform 0.5s;
+  transform-origin: 0%;
+}
+
+.userPageDetailItemInput:focus + .userPageDetailUpdateItemBorder {
+  transform: scaleX(1);
+}
+
+.userPageDetailUpdateRight {
+  position: relative;
+}
+
+.userPageDetailUpdateRightImg {
+  border-radius: 20px;
+}
+
+.userPageDetailUpdateRightFile {
+  display: none;
+}
+
+.userPageDetailUpdateRightIcon {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  cursor: pointer;
+  color: white;
+}

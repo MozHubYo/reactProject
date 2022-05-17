@@ -1,0 +1,7 @@
+.chart {
+  margin: 10px;
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid purple;
+  box-shadow: 4px 4px 4px -1px purple;
+}

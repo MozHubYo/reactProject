@@ -1,0 +1,14 @@
+.homePage {
+  flex: 7;
+}
+
+.featured {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.homeWidget {
+  display: flex;
+  margin-top: 20px;
+}
