@@ -71,7 +71,7 @@ const ChartPage = styled.div`
 
 const ChartTitle = styled.span`
   color: gray;
-  margin: 10px auto;
+  margin-bottom: 15px;
 `;
 
 const Inventory = () => {

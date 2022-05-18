@@ -42,12 +42,14 @@ export default function Sidebar() {
             <li className="sidebarListItem">
               <FilterTiltShift className="sidebarIcon" />
               <Link className="sidebarLink" to="/users">
-                User Management
+                User admin
               </Link>
             </li>
             <li className="sidebarListItem ">
               <ShoppingCart className="sidebarIcon" />
-              Product
+              <Link className="sidebarLink" to="/productlist">
+                Product
+              </Link>
             </li>
             <Link className="sidebarLink" to="/inventory">
               <li className="sidebarListItem">

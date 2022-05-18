@@ -12,7 +12,7 @@ const Container = styled.div`
 const BarTitle = styled.span`
   display: inline-block;
   color: gray;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   font-size: 12px;
 `;
 
