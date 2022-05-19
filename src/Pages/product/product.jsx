@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro';
 import ProductInfoPage from './ProductInfoPage';
-import InfoForm from './infoForm';
+import InformationTab from './InformationTab';
 
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
@@ -8,6 +8,12 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { useState } from 'react';
+import {
+  HelpOutlineOutlined,
+  LocalOfferOutlined,
+  ImageOutlined,
+  AssistantPhotoOutlined,
+} from '@mui/icons-material';
 
 const Container = styled.div`
   flex: 7;
@@ -20,7 +26,6 @@ const Container = styled.div`
 
 const RightPage = styled.div`
   border: 1px solid purple;
-  padding-top: 15px;
   flex: 140%;
 `;
 
@@ -73,36 +78,53 @@ const Product = () => {
             <Tabs
               value={value}
               onChange={handleChange}
-              aria-label="basic tabs example"
+              variant="fullWidth"
               sx={{
-                '.css-heg063-MuiTabs-flexContainer': {
-                  justifyContent: 'space-around',
+                // Selected Option 標題改為紫色
+                '.css-1nppm96-MuiButtonBase-root-MuiTab-root.Mui-selected': {
+                  color: 'purple',
                 },
+                // Option 標題預設值
                 '.css-heg063-MuiTabs-flexContainer button': {
                   fontFamily: 'Source Sans Pro',
-                  fontSize: '18px',
+                  fontSize: '16px',
                   textTransform: 'none',
                   color: 'lightgray',
                 },
-                '.css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected': {
-                  color: 'purple',
-                },
+                // 標題下方的指示條
                 '.css-1aquho2-MuiTabs-indicator': {
                   backgroundColor: 'purple',
                 },
-                '.css-19kzrtu': {
-                  padding: '10px',
-                },
               }}
             >
-              <Tab label="Information" {...a11yProps(0)} />
-              <Tab label="Pricing" {...a11yProps(1)} />
-              <Tab label="Images" {...a11yProps(2)} />
-              <Tab label="Others" {...a11yProps(2)} />
+              <Tab
+                icon={<HelpOutlineOutlined />}
+                iconPosition="start"
+                label="Information"
+                {...a11yProps(0)}
+              />
+              <Tab
+                icon={<LocalOfferOutlined />}
+                iconPosition="start"
+                label="Pricing"
+                {...a11yProps(1)}
+              />
+              <Tab
+                icon={<ImageOutlined />}
+                iconPosition="start"
+                label="Images"
+                {...a11yProps(2)}
+              />
+              <Tab
+                icon={<AssistantPhotoOutlined />}
+                iconPosition="start"
+                label="Others"
+                {...a11yProps(2)}
+              />
             </Tabs>
           </Box>
           <TabPanel value={value} index={0}>
-            <InfoForm />
+            <InformationTab />
           </TabPanel>
           <TabPanel value={value} index={1}>
             Item Two
