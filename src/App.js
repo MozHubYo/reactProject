@@ -1,12 +1,13 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import TopBar from './components/topbar/Topbar';
+import { TopBar } from './components/topBar/topBar';
 import Sidebar from './components/sidebar/sidebar';
 import Home from './Pages/home/home';
-import UserList from './Pages/userlist/userlist';
+import UserList from './Pages/userList/userList';
 import User from './Pages/user/user';
 import Inventory from './Pages/inventory/inventory';
-import ProductList from './Pages/productlist/productList';
+import ProductList from './Pages/productList/productList';
+import Product from './Pages/product/product';
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
           <Route path="/users" element={<UserList />} />
           <Route path="/users/:userId" element={<User />} />
           <Route path="/inventory" element={<Inventory />} />
-          <Route path="/productlist" element={<ProductList />} />
+          <Route path="/productList" element={<ProductList />} />
+          <Route path="/product/:productId" element={<Product />} />
         </Routes>
       </div>
     </Router>

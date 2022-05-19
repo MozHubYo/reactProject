@@ -7,9 +7,7 @@ import Stack from '@mui/material/Stack';
 import IconButton from '@mui/material/IconButton';
 import Avatar from '@mui/material/Avatar';
 
-// https://picsum.photos/300/300?random=${num}
-
-export default function TopBar() {
+export function TopBar() {
   return (
     <div className="topbar">
       <div className="topbarWrapper">

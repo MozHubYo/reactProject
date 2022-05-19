@@ -1,7 +1,7 @@
 import React from 'react';
 import './sidebar.css';
 import {
-  Home,
+  SummarizeOutlined,
   Timeline,
   AttachMoney,
   ShoppingCart,
@@ -21,11 +21,17 @@ export default function Sidebar() {
           <h3 className="sidebarTitle">Dashboard</h3>
           <ul className="sidebarList">
             <li className="sidebarListItem">
-              <Home className="sidebarIcon" />
+              <SummarizeOutlined className="sidebarIcon" />
               <Link className="sidebarLink" to="/">
-                Home
+                Summary
               </Link>
             </li>
+            <Link className="sidebarLink" to="/inventory">
+              <li className="sidebarListItem">
+                <AirportShuttle className="sidebarIcon" />
+                Inventory
+              </li>
+            </Link>
             <li className="sidebarListItem">
               <Timeline className="sidebarIcon" />
               Analytics
@@ -37,26 +43,20 @@ export default function Sidebar() {
           </ul>
         </div>
         <div className="sidebarMenu">
-          <h3 className="sidebarTitle">Quick Menu</h3>
+          <h3 className="sidebarTitle">Admin Portal</h3>
           <ul className="sidebarList">
             <li className="sidebarListItem">
               <FilterTiltShift className="sidebarIcon" />
               <Link className="sidebarLink" to="/users">
-                User admin
+                Customers
               </Link>
             </li>
             <li className="sidebarListItem ">
               <ShoppingCart className="sidebarIcon" />
-              <Link className="sidebarLink" to="/productlist">
-                Product
+              <Link className="sidebarLink" to="/productList">
+                Products
               </Link>
             </li>
-            <Link className="sidebarLink" to="/inventory">
-              <li className="sidebarListItem">
-                <AirportShuttle className="sidebarIcon" />
-                Inventory
-              </li>
-            </Link>
           </ul>
         </div>
         <div className="sidebarMenu">

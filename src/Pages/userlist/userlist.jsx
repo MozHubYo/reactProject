@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Edit, DeleteForever } from '@mui/icons-material';
 import { DataGrid } from '@mui/x-data-grid';
 import { userListRows } from '../../dummyData';
-import './userlist.css';
+import './userList.css';
 
 export default function UserList() {
   const [data, setData] = useState(userListRows);
