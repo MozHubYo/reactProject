@@ -1,0 +1,11 @@
+.MuiDataGrid-columnSeparator {
+  display: 'none';
+}
+
+/* .MuiDataGrid-root {
+  border: 'none';
+} */
+
+.MuiDataGrid-columnHeader {
+  justify-content: center;
+}
