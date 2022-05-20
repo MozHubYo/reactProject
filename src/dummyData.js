@@ -172,7 +172,42 @@ export const userListRows = [
   },
 ];
 
-export const productData = [
+export const productColumns = [
+  {
+    field: 'sku',
+    headerName: 'SKU',
+    width: 130,
+  },
+  {
+    field: 'price',
+    headerName: 'Price',
+    width: 100,
+  },
+  {
+    field: 'status',
+    headerName: 'Status',
+    width: 100,
+    renderCell: (params) => {
+      return `${params.row.status ? 'Active' : 'Inactive'} `;
+    },
+  },
+  {
+    field: 'instock',
+    headerName: 'Stock',
+  },
+  {
+    field: 'createdtime',
+    headerName: 'Created',
+    width: 150,
+  },
+  {
+    field: 'profitmargin',
+    headerName: 'Profit',
+    width: 100,
+  },
+];
+
+export const productRows = [
   {
     id: 1,
     sku: 'MOZ14816X',
@@ -355,7 +390,7 @@ export const productData = [
   },
 ];
 
-export const inputColumnsList = [
+export const informationColumnsList = [
   {
     type: 'Product Name',
     name: 'productName',
@@ -363,4 +398,25 @@ export const inputColumnsList = [
   },
   { type: 'SKU', name: 'sku', placeholder: 'MOZ17824X' },
   { type: 'Condition', name: 'condition', placeholder: 'New' },
+  { type: 'Status', name: 'status', placeholder: 'Active' },
+  { type: 'Carrier', name: 'carrier', placeholder: 'FedEx' },
+];
+
+export const priceColumnsList = [
+  { type: 'Sales Price', name: 'price', placeholder: '$156.00' },
+  { type: 'Discount', name: 'discount', placeholder: '20%' },
+  { type: 'Sales Price (2B)', name: 'price2b', placeholder: '$136.00' },
+  { type: 'Discount (2B)', name: 'discount2b', placeholder: '30%' },
+  { type: 'Sales Price (VIP)', name: 'priceVip', placeholder: '$126.00' },
+  { type: 'Discount (VIP)', name: 'discountVip', placeholder: '35%' },
+];
+
+export const otherColumnsList = [
+  { type: 'Other1', name: 'other1', placeholder: 'Other1' },
+  { type: 'Other2', name: 'other2', placeholder: 'Other2' },
+  { type: 'Other3', name: 'other3', placeholder: 'Other3' },
+  { type: 'Other4', name: 'other4', placeholder: 'Other4' },
+  { type: 'Other5', name: 'other5', placeholder: 'Other5' },
+  { type: 'Other6', name: 'other6', placeholder: 'Other6' },
+  { type: 'Other7', name: 'other7', placeholder: 'Other7' },
 ];

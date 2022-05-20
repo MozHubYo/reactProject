@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro';
 import { DataGrid } from '@mui/x-data-grid';
-import { productData } from '../../dummyData';
+import { productColumns, productRows } from '../../dummyData';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -22,39 +22,14 @@ const DataContainer = styled.div`
 `;
 
 const ProductDataGrid = () => {
+  const [rows, setRows] = useState(productRows);
+
+  function handleDelete(id) {
+    setRows(rows.filter((item) => item.id !== id));
+  }
+
   const columns = [
-    {
-      field: 'sku',
-      headerName: 'SKU',
-      width: 130,
-    },
-    {
-      field: 'price',
-      headerName: 'Price',
-      width: 100,
-    },
-    {
-      field: 'status',
-      headerName: 'Status',
-      width: 100,
-      renderCell: (params) => {
-        return `${params.row.status ? 'Active' : 'Inactive'} `;
-      },
-    },
-    {
-      field: 'instock',
-      headerName: 'Stock',
-    },
-    {
-      field: 'createdtime',
-      headerName: 'Created',
-      width: 150,
-    },
-    {
-      field: 'profitmargin',
-      headerName: 'Profit',
-      width: 100,
-    },
+    ...productColumns,
     {
       headerName: 'Action',
       width: 200,
@@ -73,16 +48,10 @@ const ProductDataGrid = () => {
     },
   ];
 
-  const [data, setData] = useState(productData);
-
-  function handleDelete(id) {
-    setData(data.filter((item) => item.id !== id));
-  }
-
   return (
     <DataContainer>
       <DataGrid
-        rows={data}
+        rows={rows}
         columns={columns}
         pageSize={10}
         rowsPerPageOptions={[10]}

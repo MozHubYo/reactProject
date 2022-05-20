@@ -9,12 +9,13 @@ const Container = styled.div`
 `;
 
 // 製作輸入框組件
-const InputColumn = ({ type, name, placeholder, handleChange }) => (
+const InputColumn = ({ type, name, value, placeholder, handleChange }) => (
   <Div>
     <Span>{type}</Span>
     <Input
       type="text"
       name={name}
+      value={value}
       placeholder={placeholder}
       onChange={handleChange}
       onblur={() => (this.value = '')}
@@ -88,8 +89,10 @@ const Border = styled.div`
 `;
 
 // 製作按鈕組件
-const SaveBnt = ({ disabled, text }) => (
-  <Bnt disabled={disabled && 'disabled'}> {text}</Bnt>
+const SaveBnt = ({ disabled, text, handleClick }) => (
+  <Bnt disabled={disabled && 'disabled'} onClick={handleClick}>
+    {text}
+  </Bnt>
 );
 
 const BntContainer = styled.div`
@@ -100,6 +103,7 @@ const BntContainer = styled.div`
 
 const Bnt = styled.button`
   height: 100%;
+  width: 200px;
   background-color: purple;
   color: white;
   padding: 0 20px;
@@ -139,12 +143,29 @@ const InformationTab = ({ inputList }) => {
 
   const [productState, setProductState] = useState(initialState);
 
+  const initialPlaceholder = inputList.reduce(
+    (obj, item) => ((obj[item.name] = item.placeholder), obj),
+    {}
+  );
+
+  const [productPlaceholder, setProductPlaceholder] =
+    useState(initialPlaceholder);
+
   function handleChange(e) {
     const newProductState = {
       ...productState,
       [e.target.name]: e.target.value,
     };
     setProductState(newProductState);
+  }
+
+  function handleReset() {
+    setProductState(initialState);
+  }
+
+  function handleASave(e) {
+    setProductPlaceholder(productState);
+    setProductState(initialState);
   }
 
   return (
@@ -154,16 +175,18 @@ const InformationTab = ({ inputList }) => {
           <InputColumn
             type={input.type}
             name={input.name}
-            placeholder={input.placeholder}
+            value={productState[input.name]}
+            placeholder={productPlaceholder[input.name]}
             handleChange={handleChange}
           />
         ))}
       </InputContainer>
       <BntContainer>
-        <SaveBnt text={'Back to List'} />
+        <SaveBnt text={'Reset'} handleClick={handleReset} />
         <SaveBnt
           disabled={Object.values(productState).some((value) => value === '')}
           text={'Save Change'}
+          handleClick={handleASave}
         />
       </BntContainer>
     </Container>
