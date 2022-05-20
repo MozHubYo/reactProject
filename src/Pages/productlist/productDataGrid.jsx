@@ -85,7 +85,7 @@ const ProductDataGrid = () => {
         rows={data}
         columns={columns}
         pageSize={10}
-        // rowsPerPageOptions={[5, 10]}
+        rowsPerPageOptions={[10]}
         checkboxSelection
         headerAlign="center"
         disableSelectionOnClick

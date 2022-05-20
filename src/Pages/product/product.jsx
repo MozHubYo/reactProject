@@ -15,6 +15,8 @@ import {
   AssistantPhotoOutlined,
 } from '@mui/icons-material';
 
+import { inputColumnsList } from '../../dummyData';
+
 const Container = styled.div`
   flex: 7;
   margin: 0px 27px 10px 10px;
@@ -124,7 +126,7 @@ const Product = () => {
             </Tabs>
           </Box>
           <TabPanel value={value} index={0}>
-            <InformationTab />
+            <InformationTab inputList={inputColumnsList} />
           </TabPanel>
           <TabPanel value={value} index={1}>
             Item Two

@@ -14,7 +14,7 @@ export function TopBar() {
         <div className="topLeft">
           <span className="logo">
             <Link className="sidebarLink" to="/">
-              Moz's Dashboard
+              Dashboard for Moz
             </Link>
           </span>
         </div>

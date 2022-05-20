@@ -354,3 +354,13 @@ export const productData = [
     profitmargin: '36%',
   },
 ];
+
+export const inputColumnsList = [
+  {
+    type: 'Product Name',
+    name: 'productName',
+    placeholder: 'Amazing Product',
+  },
+  { type: 'SKU', name: 'sku', placeholder: 'MOZ17824X' },
+  { type: 'Condition', name: 'condition', placeholder: 'New' },
+];

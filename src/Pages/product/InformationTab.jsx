@@ -9,15 +9,17 @@ const Container = styled.div`
 `;
 
 // 製作輸入框組件
-const InputColumn = ({ type, name, placeholder, onChange }) => (
+const InputColumn = ({ type, name, placeholder, handleChange }) => (
   <Div>
     <Span>{type}</Span>
     <Input
       type="text"
       name={name}
       placeholder={placeholder}
-      onChange={(e) => onChange(e)}
+      onChange={handleChange}
+      onblur={() => (this.value = '')}
     />
+    <Border />
   </Div>
 );
 
@@ -47,7 +49,7 @@ const Span = styled.span`
 
 const Input = styled.input`
   border: none;
-  border-bottom: 2px solid lightgray;
+  border-bottom: 2px solid purple;
   height: 30px;
   width: 100%;
   font-family: 'Franklin Gothic Medium';
@@ -55,26 +57,40 @@ const Input = styled.input`
   font-size: 16px;
   color: #555;
   outline: none;
-  &:not(:placeholder-shown) {
-    border-bottom: 2px solid purple;
-  }
+  z-index: 1;
   &::placeholder {
     color: lightgray;
     font-size: 14px;
   }
+  &:placeholder-shown {
+    border-bottom: 2px solid lightgray;
+  }
+  &:focus {
+    border-bottom: 2px solid purple;
+    z-index: 2;
+  }
+`;
+
+const Border = styled.div`
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 102%;
+  top: calc(100% - 2px);
+  background: purple;
+  transform: scaleX(0);
+  transition: transform 0.5s;
+  transform-origin: 0%;
+  z-index: 1;
+  ${Div}:hover & {
+    transform: scaleX(1);
+  }
 `;
 
 // 製作按鈕組件
-const SaveBnt = ({ check, data, text }) =>
-  !check ? (
-    <Bnt>{text}</Bnt>
-  ) : (
-    <Bnt
-      disabled={Object.values(data).some((value) => value === '') && 'disabled'}
-    >
-      {text}
-    </Bnt>
-  );
+const SaveBnt = ({ disabled, text }) => (
+  <Bnt disabled={disabled && 'disabled'}> {text}</Bnt>
+);
 
 const BntContainer = styled.div`
   display: flex;
@@ -110,32 +126,45 @@ const Bnt = styled.button`
   }
 `;
 
-const InformationTab = () => {
-  const [data, setData] = useState('');
+const InformationTab = ({ inputList }) => {
+  const initialState = inputList.reduce(
+    // 下面用到了comma operator，利用逗號運算符 => 由左至右完成運算，返回最後一個值
+    // 下方是一個實際案例，我們希望把 X依序 乘5->減3->除2->加4，通過逗號運算符就能一行完成
+    //     let x = 1;
+    //      x = (x*5, x-3, x/2, x+4);  由左至右依次執行，最後一個值會被返回
+    //      console.log(x)  x為5 == (x*5-3)/2+4
+    (obj, item) => ((obj[item.name] = ''), obj),
+    {}
+  );
+
+  const [productState, setProductState] = useState(initialState);
+
+  function handleChange(e) {
+    const newProductState = {
+      ...productState,
+      [e.target.name]: e.target.value,
+    };
+    setProductState(newProductState);
+  }
 
   return (
     <Container>
       <InputContainer>
-        <input
-          type="text"
-          onChange={(e) => setData(e.target.value)}
-          value={data}
-        />
-        <InputColumn
-          type={'Product Name'}
-          name={'productName'}
-          placeholder={'Amazing Product'}
-        />
-        <InputColumn type={'SKU'} name={'sku'} placeholder={'MOZ17824X'} />
-        <InputColumn
-          type={'Condition'}
-          name={'condition'}
-          placeholder={'New'}
-        />
+        {inputList.map((input) => (
+          <InputColumn
+            type={input.type}
+            name={input.name}
+            placeholder={input.placeholder}
+            handleChange={handleChange}
+          />
+        ))}
       </InputContainer>
       <BntContainer>
-        <SaveBnt check={false} text={'Back to List'} />
-        <SaveBnt check={true} data={data} text={'Save Change'} />
+        <SaveBnt text={'Back to List'} />
+        <SaveBnt
+          disabled={Object.values(productState).some((value) => value === '')}
+          text={'Save Change'}
+        />
       </BntContainer>
     </Container>
   );
